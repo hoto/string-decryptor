@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/hoto/template-go-cli/config"
+	"github.com/hoto/string-decryptor/config"
 	"github.com/logrusorgru/aurora"
 )
 

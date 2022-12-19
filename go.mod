@@ -1,4 +1,4 @@
-module github.com/hoto/template-go-cli
+module github.com/hoto/string-decryptor
 
 go 1.14
 

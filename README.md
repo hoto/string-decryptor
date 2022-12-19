@@ -1,48 +1,46 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](/LICENSE)
-[![Build status](https://github.com/hoto/template-go-cli/workflows/Build%20and%20test/badge.svg?branch=master)](https://github.com/hoto/template-go-cli/actions)
-[![Release](https://img.shields.io/github/release/hoto/template-go-cli.svg?style=flat-square)](https://github.com/hoto/template-go-cli/releases/latest)
+[![Build status](https://github.com/hoto/string-decryptor/workflows/Build%20and%20test/badge.svg?branch=master)](https://github.com/hoto/string-decryptor/actions)
+[![Release](https://img.shields.io/github/release/hoto/string-decryptor.svg?style=flat-square)](https://github.com/hoto/string-decryptor/releases/latest)
 [![Powered By: goreleaser](https://img.shields.io/badge/powered%20by-goreleaser-green.svg?style=flat-square)](https://github.com/goreleaser/goreleaser)
 
-# Golang application template repository
+# String decryptor
 
-Clone and replace `template-go-cli` with the name of your project.
-
-Github action will use `goreleaser` to automatically releases formula to homebrew repo at [hoto/homebrew-repo](https://github.com/hoto/homebrew-repo) on every git tag.
+CLI tool to decrypt passed in string.
 
 ### Installation
     
 Mac:
 
-    brew install hoto/homebrew-repo/template-go-cli
+    brew install hoto/homebrew-repo/string-decryptor
 
 Mac or Linux:
 
     sudo curl -L \
-      "https://github.com/hoto/template-go-cli/releases/download/1.0.3/template-go-cli_1.0.3_$(uname -s)_$(uname -m)" \
-       -o /usr/local/bin/template-go-cli
+      "https://github.com/hoto/string-decryptor/releases/download/1.0.0/string-decryptor_1.0.0_$(uname -s)_$(uname -m)" \
+       -o /usr/local/bin/string-decryptor
 
-    sudo chmod +x /usr/local/bin/template-go-cli
+    sudo chmod +x /usr/local/bin/string-decryptor
     
-Or manually download binary from [releases](https://github.com/hoto/template-go-cli/releases).
+Or manually download binary from [releases](https://github.com/hoto/string-decryptor/releases).
     
 ### Run
 
-    template-go-cli --help
-    template-go-cli --version
-    template-go-cli
+    string-decryptor --help
+    string-decryptor --version
+    string-decryptor
     
 ### Development
 
 Build and test:
 
-    go get github.com/hoto/template-go-cli
+    go get github.com/hoto/string-decryptor
     
     make dependencies build test
     
 Build binary:
 
      make build
-    ./bin/template-go-cli
+    ./bin/string-decryptor
 
 Run with arguments:
 
@@ -51,9 +49,9 @@ Run with arguments:
 Install to global golang bin directory:
 
     make install
-    template-go-cli
+    string-decryptor
     
 ### Release
 
-Add a git tag and push it to GH. 
-GH action will pick it up and goreleaser will publish to https://github.com/hoto/homebrew-repo
+Add a git tag and push it to GitHub.  
+GitHub action will use `goreleaser` to automatically releases formula to homebrew repo at [hoto/homebrew-repo](https://github.com/hoto/homebrew-repo) on every git tag.

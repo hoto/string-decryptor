@@ -1,6 +1,6 @@
 all: clean build test run install goreleaser-release goreleaser-dry-run goreleaser-dry-run
 
-REPO_NAME = github.com/hoto/template-go-cli
+REPO_NAME = github.com/hoto/string-decryptor
 GO_RELEASER_VERSION = v1.13.1
 
 clean:
@@ -13,13 +13,13 @@ dependencies:
 	go mod verify
 
 build: dependencies
-	go build -ldflags="-X '${REPO_NAME}/config.Version=0.0.0' -X '${REPO_NAME}/config.ShortCommit=HASH' -X '${REPO_NAME}/config.BuildDate=DATE'" -o bin/template-go-cli
+	go build -ldflags="-X '${REPO_NAME}/config.Version=0.0.0' -X '${REPO_NAME}/config.ShortCommit=HASH' -X '${REPO_NAME}/config.BuildDate=DATE'" -o bin/string-decryptor
 
 test:
 	go test -v ./...
 
 run: clean build
-	./bin/template-go-cli $(arg)
+	./bin/string-decryptor $(arg)
 
 install: clean build
 	go install -v ./...

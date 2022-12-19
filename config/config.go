@@ -23,7 +23,7 @@ func ParseArgsAndFlags() {
 	flag.Parse()
 
 	if *showVersion {
-		fmt.Printf("template-go-cli version %s, commit %s, build %s\n",
+		fmt.Printf("string-decryptor version %s, commit %s, build %s\n",
 			Version, ShortCommit, BuildDate)
 		os.Exit(0)
 	}
@@ -39,7 +39,7 @@ func overrideUsage() func() {
 			os.Stdout,
 			"Usage:"+
 				"\n\t"+
-				"template-go-cli [flags]"+
+				"string-decryptor [flags]"+
 				"\n\n"+
 				"Flags:"+
 				"\n")
