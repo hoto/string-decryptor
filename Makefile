@@ -24,6 +24,9 @@ run: clean build
 install: clean build
 	go install -v ./...
 
+smoke-test: clean build
+	./bin/string-decryptor -a aes256 -p password -s salt -b thebody
+
 goreleaser-release: clean dependencies
 	curl -sL https://git.io/goreleaser | VERSION=${GO_RELEASER_VERSION} bash
 

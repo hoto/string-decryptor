@@ -12,6 +12,30 @@ var (
 	ShortCommit string
 	BuildDate   string
 	Debug       bool
+
+	EncryptionAlgorithm string
+	EncryptionPassword  string
+	EncryptionSalt      string
+	StringToDecrypt     string
+)
+
+const (
+	empty                   = ""
+	encryptionAlgorithmDesc = "(required) Encryption algorithm"
+	encryptionPasswordDesc  = "(required) Encryption password"
+	encryptionSaltDesc      = "(required) Encryption salt"
+	stringToDecryptDesc     = "(required) String to be decrypted"
+	usage                   = `Usage example:
+
+  string-decryptor \
+    -a aes256 \
+    -p password \
+    -s salt \
+    -b bc5b3bd34ac8
+
+Flags:
+
+`
 )
 
 func ParseArgsAndFlags() {
@@ -19,6 +43,10 @@ func ParseArgsAndFlags() {
 
 	flag.BoolVar(&Debug, "debug", false, "Show verbose debug information")
 	showVersion := flag.Bool("version", false, "Show version")
+	flag.StringVar(&EncryptionAlgorithm, "a", empty, encryptionAlgorithmDesc)
+	flag.StringVar(&EncryptionPassword, "p", empty, encryptionPasswordDesc)
+	flag.StringVar(&EncryptionSalt, "s", empty, encryptionSaltDesc)
+	flag.StringVar(&StringToDecrypt, "b", empty, stringToDecryptDesc)
 
 	flag.Parse()
 
@@ -35,14 +63,7 @@ func ParseArgsAndFlags() {
 
 func overrideUsage() func() {
 	return func() {
-		_, _ = fmt.Fprintf(
-			os.Stdout,
-			"Usage:"+
-				"\n\t"+
-				"string-decryptor [flags]"+
-				"\n\n"+
-				"Flags:"+
-				"\n")
+		_, _ = fmt.Fprintf(os.Stdout, usage)
 		flag.PrintDefaults()
 	}
 }
